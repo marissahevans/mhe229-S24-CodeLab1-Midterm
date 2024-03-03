@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                GameManager.Instance.isInGame = true;
+                //GameManager.Instance.isInGame = true;
                 SceneManager.LoadScene("EndPage");
                 //SetHighScore();
             }

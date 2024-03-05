@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
 {
     float timer = 0;
 
-   private int maxTime = 2;
+   private int maxTime = 1;
    
 
     // Update is called once per frame

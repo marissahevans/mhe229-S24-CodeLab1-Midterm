@@ -33,7 +33,7 @@ public class HighScore : MonoBehaviour
         {
             if (highScores == null && File.Exists(FILE_PATH))
             {
-                Debug.Log("got from file");
+                Debug.Log("got scores from file");
                 
                 highScores = new List<int>();
 
@@ -51,7 +51,7 @@ public class HighScore : MonoBehaviour
             }
             else if(highScores == null)
             {
-                Debug.Log("NOPE");
+                Debug.Log("No Scores");
                 highScores = new List<int>();
                 highScores.Add(3);
                 highScores.Add(2);
@@ -72,7 +72,7 @@ public class HighScore : MonoBehaviour
         {
             if (names == null && File.Exists(FILE_PATH2))
             {
-                Debug.Log("got from file");
+                Debug.Log("got names from file");
                 
                 names = new List<string>();
 
@@ -80,10 +80,18 @@ public class HighScore : MonoBehaviour
 
                 highScoreNames = highScoreNames.Trim();
                 
+                string[] nameArray = highScoreNames.Split("\n");
+
+                for (int i = 0; i < nameArray.Length; i++)
+                {
+                    string currentName = nameArray[i];
+                    names.Add(currentName);
+                }
+                
             }
             else if(names == null)
             {
-                Debug.Log("NOPE");
+                Debug.Log("No Names");
                 names = new List<string>();
                 names.Add("AAA");
                 names.Add("AAA");
@@ -119,7 +127,7 @@ public class HighScore : MonoBehaviour
 
     bool IsHighScore(int scoreHolder)
     {
-
+        Debug.Log(Names.Count);
        for (int i = 0; i < HighScores.Count; i++)
        {
            if (highScores[i] < scoreHolder)
@@ -136,8 +144,8 @@ public class HighScore : MonoBehaviour
         if (IsHighScore(finalScore))
         {
             int highScoreSlot = -1;
-
-            for (int i = 0; i < Names.Count; i++)
+           
+            for (int i = 0; i < HighScores.Count; i++)
             {
                 if (finalScore > highScores[i])
                 {
@@ -145,7 +153,7 @@ public class HighScore : MonoBehaviour
                     break;
                 }
             }
-                
+            
             highScores.Insert(highScoreSlot, finalScore);
             names.Insert(highScoreSlot, GameManager.playernametxt.ToUpper());
 

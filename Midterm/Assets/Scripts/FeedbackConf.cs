@@ -21,12 +21,12 @@ public class FeedbackConf : MonoBehaviour
         if (sqrLen > (newScale/2 * newScale/2))
         {
             GameManager.Instance.Score += 0;
-            display.text = "Points earned:" + 0;
+            display.text = "Points earned: " + 0;
         }
         else
         {
             GameManager.Instance.Score += pointsPossible;
-            display.text = "Points earned:" + Math.Round(pointsPossible,2);
+            display.text = "Points earned: " + Math.Round(pointsPossible,2);
         }
     }
     

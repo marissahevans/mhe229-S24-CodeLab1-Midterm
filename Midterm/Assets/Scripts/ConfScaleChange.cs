@@ -44,6 +44,7 @@ public class ConfScaleChange : MonoBehaviour
         }
 
         pointsPossible = 10 - transform.localScale[0] * 2;
-        display.text = "Points possible:" + Math.Round(pointsPossible,2);
+        display.text = "Change sphere size with W & S keys, enter size with A" +
+                       "\n Points possible: " + Math.Round(pointsPossible,2);
     }
 }
